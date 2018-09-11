@@ -21,6 +21,6 @@ export class HomePage {
   }
 
   view(){
-    
+    this.navCtrl.navigateForward('/view');
   }
 }

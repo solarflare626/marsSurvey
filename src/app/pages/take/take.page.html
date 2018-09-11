@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-button (click)="back()">Back</ion-button><ion-title>take</ion-title>
+    <ion-button (click)="back()">Back</ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -27,23 +27,23 @@
    <p > 1. Which of the four articles are fake? </p>
    <div >
      <ion-item>
-      <ion-checkbox color="primary" [(ngModel)]="survey.q1_1"></ion-checkbox>
+      <ion-checkbox color="primary" [(ngModel)]="survey.q1_1" (ionChange)="updateQ1($event)"></ion-checkbox>
       <ion-label>Article I</ion-label>
     </ion-item>
     <ion-item>
-        <ion-checkbox color="primary" [(ngModel)]="survey.q1_2"></ion-checkbox>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_2" (ionChange)="updateQ1($event)"></ion-checkbox>
         <ion-label>Article II</ion-label>
     </ion-item>
     <ion-item>
-        <ion-checkbox color="primary" [(ngModel)]="survey.q1_3"></ion-checkbox>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_3" (ionChange)="updateQ1($event)"></ion-checkbox>
         <ion-label>Article III</ion-label>
     </ion-item>
     <ion-item>
-        <ion-checkbox color="primary" [(ngModel)]="survey.q1_4"></ion-checkbox>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_4" (ionChange)="updateQ1($event)"></ion-checkbox>
         <ion-label>Article IV</ion-label>
     </ion-item>
     <ion-item>
-        <ion-checkbox color="primary" [(ngModel)]="survey.q1_none"></ion-checkbox>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_none" (ionChange)="updateQ1None($event)"></ion-checkbox>
         <ion-label>None of the above</ion-label>
     </ion-item>
 

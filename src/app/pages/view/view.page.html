@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>view</ion-title>
+    <ion-button (click)="back()">Back</ion-button>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-row wrap>
+    <ion-col size="2" *ngFor="let x of Arr(nSurveys);let i = index">
+      <ion-button (click)="view(i+1)" color="primary">{{i+1}}</ion-button>
+    </ion-col>
+  </ion-row>
+  
 </ion-content>
