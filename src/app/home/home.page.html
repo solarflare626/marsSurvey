@@ -1,12 +1,37 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      Survey One
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+        <ion-card>
+            <ion-card-header >
+              <ion-card-title style="text-align:center"> I want to take a survey</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content style="text-align: center">
+                <img src="assets/icon/hire.png" style="width:100px;height:100px;">
+                <p>Spend us a bit of your time, <br> and take a short survey </p>
+                <br>
+                <ion-button (click)="take()" expand="block" >Take</ion-button>
+            </ion-card-content>
+          </ion-card>
+        <ion-card>
+            <ion-card-header >
+              <ion-card-title style="text-align:center"> View answered forms</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content style="text-align: center">
+                <img src="assets/icon/job.png" style="width:100px;height:100px;">
+                <p>Review finished surveys. </p>
+                <br>
+                <p>Total Surveys: {{surveyService.nSurveys}} </p>
+                <br>
+                <ion-button (click)="view()" expand="block" >View</ion-button>
+            </ion-card-content>
+          </ion-card>
+
 </ion-content>

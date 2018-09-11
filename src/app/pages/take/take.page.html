@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-button (click)="back()">Back</ion-button><ion-title>take</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <!-- Category -->
+ 
+  <ion-item>
+      <ion-label>Course</ion-label>
+      <ion-input required type="text" [(ngModel)]="survey.course" placeholder="Example. BS Information Technology"></ion-input>
+  </ion-item>
+   <ion-item>
+      <ion-label>Age</ion-label>
+    <ion-input required type="text" [(ngModel)]="survey.age" placeholder="Age"></ion-input>
+   </ion-item>
+   <ion-item>
+    <ion-label>Gender</ion-label>
+    <ion-select [(ngModel)]="survey.gender">
+      <ion-select-option value="0">Male</ion-select-option>
+      <ion-select-option value="1">Female</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <br>
+   <!-- Projects -->
+   <p > 1. Which of the four articles are fake? </p>
+   <div >
+     <ion-item>
+      <ion-checkbox color="primary" [(ngModel)]="survey.q1_1"></ion-checkbox>
+      <ion-label>Article I</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_2"></ion-checkbox>
+        <ion-label>Article II</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_3"></ion-checkbox>
+        <ion-label>Article III</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_4"></ion-checkbox>
+        <ion-label>Article IV</ion-label>
+    </ion-item>
+    <ion-item>
+        <ion-checkbox color="primary" [(ngModel)]="survey.q1_none"></ion-checkbox>
+        <ion-label>None of the above</ion-label>
+    </ion-item>
+
+    </div><br>
+
+      <!-- Description -->
+      <p> 2. Why do you think that the article/s you've chosen is/are fake? </p>
+      <div>
+      <ion-item>
+          <ion-checkbox color="primary" [(ngModel)]="survey.q2_1"></ion-checkbox>
+          <ion-label>Exagerated headline</ion-label>
+      </ion-item>
+      <ion-item>
+          <ion-checkbox color="primary" [(ngModel)]="survey.q2_2"></ion-checkbox>
+          <ion-label>Biased</ion-label>
+      </ion-item>
+      <ion-item>
+          <ion-checkbox color="primary" [(ngModel)]="survey.q2_3"></ion-checkbox>
+          <ion-label>Grammatically wrong</ion-label>
+      </ion-item>
+      <ion-item>
+          <ion-checkbox color="primary" [(ngModel)]="survey.q2_4"></ion-checkbox>
+          <ion-label>Mispelled words/wrong spelling</ion-label>
+      </ion-item>
+      <ion-item>
+          <ion-checkbox color="primary" [(ngModel)]="survey.q2_5"></ion-checkbox>
+          <ion-label>Unreliable sources</ion-label>
+      </ion-item>
+      <ion-item>
+          <ion-checkbox color="primary" [(ngModel)]="survey.q2_6"></ion-checkbox>
+          <ion-label>The author is not credible</ion-label>
+      </ion-item>
+
+      </div><br>
+      <p> If others, please specify: </p>
+      <textarea rows="6" style="width:100%;" [(ngModel)]="survey.others" ></textarea>
+  <br><br>
+      <ion-button expand="block" (click)="submit()"  [disabled]="isSubmitted">Submit</ion-button>
+</ion-content>

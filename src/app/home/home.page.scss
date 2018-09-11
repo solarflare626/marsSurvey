@@ -1,1 +1,21 @@
+$colors: (
+  primary:    #488aff,
+  secondary:  #32db64,
+  danger:     #f53d3d,
+  light:      #f4f4f4,
+  dark:       #222,
+  twitter: (
+    base: #55acee,
+    contrast: #ffffff
+  )
+);
+img{
+    height: 70vh;
+    width: auto;
+    margin: auto;
+    display: block;
+  }
 
+  ion-header,ion-toolbar{
+      background: #55acee;
+  }
