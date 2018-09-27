@@ -39,7 +39,6 @@ export class SurveyPage implements OnInit {
     this.navCtrl.goBack();
   }
   read(article:Article){
-    //console.log(article);
     this.presentModal(article);
   }
 

@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { ViewPage } from './view.page';
-
+import { ViewSurveyPageModule } from '../view-survey/view-survey.module';
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +19,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    ViewSurveyPageModule,
     RouterModule.forChild(routes)
   ],
   declarations: [ViewPage]

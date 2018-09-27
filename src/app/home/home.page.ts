@@ -9,10 +9,7 @@ import { NavController } from '@ionic/angular';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  nSurveys:Number=0;
-
   constructor(public surveyService:SurveyService, private router: Router,private navCtrl:NavController){
-      this.nSurveys = surveyService.nSurveys;
   }
 
   take(){
