@@ -27,7 +27,11 @@ export class SurveyPage implements OnInit {
   }
 
   checkArticle(article){
-    return this.survey['article'+article.id];
+    return ;
+  }
+
+  submit(){
+    this.surveyService.insert(this.survey);
   }
 
   back(){
