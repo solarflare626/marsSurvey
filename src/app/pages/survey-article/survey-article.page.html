@@ -1,8 +1,7 @@
 <ion-header>
-  
-  <ion-toolbar>
-    <label (click)="back()"><ion-icon name="ios-arrow-back"></ion-icon><span>Back</span></label>
-  </ion-toolbar>
+    <ion-toolbar>
+        <ion-icon name="close" size="large" (click)="back()" float-left></ion-icon>
+    </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
@@ -12,8 +11,11 @@
     <ion-card-header>
       <ion-card-title style="text-align:center;">{{article.title}}</ion-card-title>
     </ion-card-header>
-    <ion-card-content style="text-align:center">
+    <ion-card-content style="text-align:justify">
       <pre style="font-family: var(--ion-font-family,inherit);white-space:pre-wrap;text-align: justify;">{{(article.body)}}</pre>
+      <br>
+      <p>Author: {{article.author}}</p>
+      <p>Source: {{article.source}}</p>
     </ion-card-content>
   </ion-card>
   

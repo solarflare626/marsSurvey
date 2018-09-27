@@ -5,12 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ViewSurveyPage } from './view-survey.page';
-import { ViewSurveyReasonPageModule } from '../view-survey-reason/view-survey-reason.module';
+import { ViewSurveyReasonPage } from './view-survey-reason.page';
+
 const routes: Routes = [
   {
-    path: 'view-survey',
-    component: ViewSurveyPage
+    path: 'view-survey-reason',
+    component: ViewSurveyReasonPage
   }
 ];
 
@@ -19,9 +19,8 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
-    ViewSurveyReasonPageModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [ViewSurveyPage]
+  declarations: [ViewSurveyReasonPage]
 })
-export class ViewSurveyPageModule {}
+export class ViewSurveyReasonPageModule {}

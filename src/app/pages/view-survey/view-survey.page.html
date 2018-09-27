@@ -1,6 +1,9 @@
 <ion-header>
     <ion-toolbar>
-      <label (click)="back()"><ion-icon name="ios-arrow-back"></ion-icon><span>Back</span></label>
+        <ion-icon name="close" size="large" (click)="back()" float-left></ion-icon>
+        
+        <ion-icon  name="more" size="large" (click)="presentPopover($event)" float-right></ion-icon>
+         
     </ion-toolbar>
   </ion-header>
   
@@ -22,25 +25,21 @@
           </ion-select>
         </ion-item>
     </ion-list>
-    <p><b>Instructions</b>: Please choose your desire answer in the following choices. You can choose as many answers as you
-      want. </p>
-    <p>1. Which among the four articles do you think is/are “Fake”?</p>
-    <ion-list>
-      <ion-item *ngFor="let article of articles;let i = index">
-        <ion-card>
-          <ion-img src="{{article.picture}}"></ion-img>
-          <ion-img *ngIf="survey['article'+article.id]" src="assets/img/fake.png" style="position:absolute;z-index:2"></ion-img>
-          <ion-card-header>
-            <ion-card-title style="text-align:center;">{{article.title}}</ion-card-title>
-          </ion-card-header>
-          <ion-card-content style="text-align:center">
-            <pre style="font-family: var(--ion-font-family,inherit);white-space:pre-wrap;text-align: justify;">{{(article.body.substring(0, 300) + "…")}}</pre>
-            <ion-button (click)="read(article)">Read More</ion-button>
-          </ion-card-content>
-        </ion-card>
-      </ion-item>
-    </ion-list>
-    <div style="text-align: center;">
-      <ion-button (click)="submit()" >Submit</ion-button>
+    <div style="text-align:center">
+        <p><b>Instructions</b>: Please choose your desire answer in the following choices. You can choose as many answers as you
+        want. </p>
+        <p>1. Which among the four articles do you think is/are “Fake”?</p>
     </div>
+    
+    <ion-card *ngFor="let article of articles;let i = index">
+      <ion-img src="{{article.picture}}"></ion-img>
+      <ion-img *ngIf="survey['article'+article.id]" src="assets/img/fake.png" style="position:absolute;z-index:2"></ion-img>
+      <ion-card-header>
+        <ion-card-title style="text-align:center;">{{article.title}}</ion-card-title>
+      </ion-card-header>
+      <ion-card-content style="text-align:center">
+        <pre style="font-family: var(--ion-font-family,inherit);white-space:pre-wrap;text-align: justify;">{{(article.body.substring(0, 300) + "…")}}</pre>
+        <ion-button *ngIf="survey['article'+article.id]" (click)="reasons(article)">See Reason</ion-button>
+      </ion-card-content>
+    </ion-card>
   </ion-content>

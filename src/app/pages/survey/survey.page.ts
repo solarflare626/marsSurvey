@@ -6,6 +6,7 @@ import { ModalController } from '@ionic/angular';
 import { SurveyArticlePage } from '../survey-article/survey-article.page';
 import { SurveyService } from '../../services/survey.service';
 import { Survey } from '../../classes/survey';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-survey',
@@ -17,7 +18,7 @@ export class SurveyPage implements OnInit {
   survey:Survey;
   
  
-  constructor( private surveyService:SurveyService,public modalController: ModalController,private navCtrl:NavController,private articleService:ArticleService) {
+  constructor( public alertController: AlertController,private surveyService:SurveyService,public modalController: ModalController,private navCtrl:NavController,private articleService:ArticleService) {
     this.articles = this.articleService.articles;
     this.survey = new Survey();
     
@@ -31,8 +32,32 @@ export class SurveyPage implements OnInit {
   }
 
   submit(){
-    this.back();
-    this.surveyService.insert(this.survey);
+    this.presentSubmitConfirm();
+  }
+
+  async presentSubmitConfirm() {
+    const alertPrompt = await this.alertController.create({
+      header: 'Submit Survey',
+      message: 'Are you sure you want to delete all data?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancelled');
+          }
+        }, {
+          text: 'Confirm',
+          handler: () => {
+            this.surveyService.insert(this.survey);
+            this.back();
+          }
+        }
+      ]
+    });
+
+    await alertPrompt.present();
   }
 
   back(){
@@ -41,6 +66,7 @@ export class SurveyPage implements OnInit {
   read(article:Article){
     this.presentModal(article);
   }
+
 
   async presentModal(article) {
     const modal = await this.modalController.create({

@@ -1,45 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { Survey } from '../../classes/survey';
-import { SurveyService } from '../../services/survey.service';
 import { AlertController } from '@ionic/angular';
-import { ViewSurveyPage } from '../view-survey/view-survey.page';
-import { ModalController } from '@ionic/angular';
+import { SurveyService } from '../../services/survey.service';
+import { PopoverController } from '@ionic/angular';
 @Component({
-  selector: 'app-view',
-  templateUrl: './view.page.html',
-  styleUrls: ['./view.page.scss'],
+  selector: 'app-view-survey-popover',
+  templateUrl: './view-survey-popover.component.html',
+  styleUrls: ['./view-survey-popover.component.scss']
 })
-export class ViewPage implements OnInit {
-  constructor(private navCtrl:NavController,private surveyService:SurveyService,public alertController: AlertController,public modalController: ModalController) { 
-    
+export class ViewSurveyPopoverComponent implements OnInit {
+  survey;
+  status;
+  constructor(private surveyService:SurveyService,public alertController: AlertController,private popoverController: PopoverController) { }
+  delete(){
+    console.log("de");
+    this.presentDeleteConfirm();
   }
- 
-  ngOnInit() {
-  }
-
-  view(i){
-    this.presentModal(this.surveyService.surveys[i-1]);
-  }
-
-  back(){
-    this.navCtrl.goBack();
-  }
-
-  async presentModal(survey) {
-    const modal = await this.modalController.create({
-      component: ViewSurveyPage,
-      componentProps: { survey:survey }
-    });
-    
-    return await modal.present();
-    
-  }
-
-  async presentClearConfirm() {
+  async presentDeleteConfirm() {
     const alertPrompt = await this.alertController.create({
-      header: 'Deleting Data',
-      subHeader: 'Are you sure you want to delete all data?',
+      header: 'Deleting Survey',
+      subHeader: 'Are you sure you want to delete this survey?',
       message: 'Please enter "DELETE" to confirm delete.',
       inputs: [
         {
@@ -61,19 +40,18 @@ export class ViewPage implements OnInit {
           text: 'Confirm',
           handler: (data) => {
             if(data.delete == 'DELETE'){
-              this.surveyService.clear();
+              this.surveyService.delete(this.survey);
+              this.status.deleted = true;
             }else{
               this.presentAlert({header:'Invalid Input',message:'Data not deleted.',buttons: ['OK']})
             }
+            this.popoverController.dismiss();
           }
         }
       ]
     });
 
     await alertPrompt.present();
-  }
-  clear(){
-    this.presentClearConfirm();
   }
 
   async presentAlert(options:any ={
@@ -91,4 +69,8 @@ export class ViewPage implements OnInit {
 
     await alert.present();
   }
+
+  ngOnInit() {
+  }
+
 }

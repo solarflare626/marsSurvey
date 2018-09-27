@@ -14,9 +14,10 @@ import { SQLite} from '@ionic-native/sqlite/ngx';
 import { SQLiteMock } from './classes/sqlite-mock';
 import { SurveyService } from './services/survey.service';
 import { ArticleService } from './services/article.service';
+import { ViewSurveyPopoverComponent } from './components/view-survey-popover/view-survey-popover.component';
 @NgModule({
-  declarations: [AppComponent],
-  entryComponents: [],
+  declarations: [AppComponent, ViewSurveyPopoverComponent],
+  entryComponents: [ViewSurveyPopoverComponent],
   imports: [BrowserModule, IonicModule.forRoot(), IonicStorageModule.forRoot(), AppRoutingModule],
   providers: [
     StatusBar,

@@ -1,6 +1,6 @@
 <ion-header>
     <ion-toolbar>
-            <ion-icon name="close" size="large" (click)="back()" float-left></ion-icon>
+            <ion-icon name="close" size="large" (click)="back()" float-right></ion-icon>
     </ion-toolbar>
 </ion-header>
 
@@ -8,68 +8,65 @@
   <h5 style="text-align:center">A. What made you think that this article is “Fake”?</h5>
   <ion-list>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_1']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_1']"></ion-checkbox>
           <p>The headline is exaggerated and is provocative </p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_2']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_2']"></ion-checkbox>
           <p>The author  of the article is not real, not credible and is not an expert in the field</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_3']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_3']"></ion-checkbox>
           <p>The sentences are grammatically  wrong</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_4']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_4']"></ion-checkbox>
           <p>Supporting sources does not actually support the story of the said claims in the article</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_5']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_5']"></ion-checkbox>
           <p>Direct quotations are taken out of context and was used incorrectly</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_6']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_6']"></ion-checkbox>
           <p>The news story happened a long time ago but was reposted as if it is relevant to the current issues</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_7']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_7']"></ion-checkbox>
           <p>It uses fictional characters and situations</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_8']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_8']"></ion-checkbox>
           <p>The story was a joke and was meant to be satire</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_9']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_9']"></ion-checkbox>
           <p>The author  of the article is not real, not credible and is not an expert in the field</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_10']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_10']"></ion-checkbox>
           <p>The article is one-sided and does not expose all sides of the story</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_11']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_11']"></ion-checkbox>
           <p>I just feel like it</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_12']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_12']"></ion-checkbox>
           <p>The picture used in the article is taken from a different news story</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_13']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_13']"></ion-checkbox>
           <p>The site was listed as a website that publishes fake news</p>
       </ion-item>
       <ion-item>
-          <ion-checkbox color="primary" [(ngModel)]="survey['article'+article.id+'_14']"></ion-checkbox>
+          <ion-checkbox disabled color="primary" [(ngModel)]="survey['article'+article.id+'_14']"></ion-checkbox>
           <p>The domain name is wrong and is only a copycat</p>
       </ion-item>
       
   </ion-list>
   <br>
       <p> If others, please specify: </p>
-      <textarea rows="6" style="width:100%;" [(ngModel)]="survey['article'+article.id+'_others']" ></textarea>
-    
-  <div style="text-align:center">
-      <ion-button (click)="submit()">Submit</ion-button>
-    </div>
+      <textarea readonly rows="6" style="width:100%;" [(ngModel)]="survey['article'+article.id+'_others']" ></textarea>
+
 </ion-content>

@@ -68,6 +68,27 @@ export class SurveyService {
       })
       .catch(e => alert(e));
    }
+   
+   delete(survey){
+    this.sqlite.create({
+      name: 'ionicsurveyonedb.db',
+      location: 'default'
+    })
+      .then((db: SQLiteObject) => {
+        db.executeSql('DELETE FROM surveys WHERE id=?',[survey.id])
+        .then(() => {
+            const index = this.surveys.indexOf(survey);
+            if (index > -1) {
+              this.surveys.splice(index, 1);
+            }
+            this.presentAlert({header:'Success!',message:'Successfully deleted survey.',buttons: ['OK']})
+          })
+        .catch((e) => this.presentAlert({header:'Error',message:JSON.stringify(e),buttons: ['OK']})
+        );
+      }) 
+      .catch((e) => this.presentAlert({header:'Error',message:JSON.stringify(e),buttons: ['OK']}));
+      
+   }
 
    clear(){
     this.sqlite.create({

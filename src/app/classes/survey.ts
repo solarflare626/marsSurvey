@@ -94,7 +94,7 @@ export class Survey {
     article1_12:false,
     article1_13:false,
     article1_14:false,
-    article1_others:null,
+    article1_others:"",
     article2:false,
     article2_1:false,
     article2_2:false,
@@ -110,7 +110,7 @@ export class Survey {
     article2_12:false,
     article2_13:false,
     article2_14:false,
-    article2_others:null,
+    article2_others:"",
     article3:false,
     article3_1:false,
     article3_2:false,
@@ -126,7 +126,7 @@ export class Survey {
     article3_12:false,
     article3_13:false,
     article3_14:false,
-    article3_others:null,
+    article3_others:"",
     article4:false,
     article4_1:false,
     article4_2:false,
@@ -142,7 +142,7 @@ export class Survey {
     article4_12:false,
     article4_13:false,
     article4_14:false,
-    article4_others:null,
+    article4_others:"",
     created_at: moment().format('YYYY-MM-DD HH:MM:SS')
   }){
     this.id = input.id;
