@@ -1,62 +1,220 @@
 export class Survey {
-    id:any;
-    gender:any;
-    course:any;
-    age:any;
-    q1_1:any = false ;
-    q1_2:any = false ;
-    q1_3:any = false ;
-    q1_4:any = false ;
-    q1_none:any  = false ; 
-    q2_1:any = false ;
-    q2_2:any = false ;
-    q2_3:any = false ;
-    q2_4:any = false ;
-    q2_5:any  = false ;
-    q2_6:any  = false ;
-    others:any;
-    
-    deserialize(input: any) {
-      Object.assign(this, input);
-      return this;
-    }
-    constructor(input:any = {}){
-        Object.assign(this, input);
-        // this.course = course;
-        // this.gender = gender;
-        // this.age = age;
-        // this.q1_1 = q1_1;
-        // this.q1_2 = q1_2;
-        // this.q1_3= q1_3;
-        // this.q1_4= q1_4;
-        // this.q1_none= q1_none ;
-        // this.q2_1 = q2_1;
-        // this.q2_2 = q2_2;
-        // this.q2_3 = q2_3;
-        // this.q2_4  = q2_4;
-        // this.q2_5  = q2_5;
-        // this.q2_6  = q2_6;
-        // this.others = others;
-    }
+  id:any;
+  sex:any;
+  course:any;
+  age:any;
+  article1:any;
+  article1_1:any;
+  article1_2:any;
+  article1_3:any;
+  article1_4:any;
+  article1_5:any;
+  article1_6:any;
+  article1_7:any;
+  article1_8:any;
+  article1_9:any;
+  article1_10:any;
+  article1_11:any;
+  article1_12:any;
+  article1_13:any;
+  article1_14:any;
+  article1_others:any;
+  article2:any;
+  article2_1:any;
+  article2_2:any;
+  article2_3:any;
+  article2_4:any;
+  article2_5:any;
+  article2_6:any;
+  article2_7:any;
+  article2_8:any;
+  article2_9:any;
+  article2_10:any;
+  article2_11:any;
+  article2_12:any;
+  article2_13:any;
+  article2_14:any;
+  article2_others:any;
+  article3:any;
+  article3_1:any;
+  article3_2:any;
+  article3_3:any;
+  article3_4:any;
+  article3_5:any;
+  article3_6:any;
+  article3_7:any;
+  article3_8:any;
+  article3_9:any;
+  article3_10:any;
+  article3_11:any;
+  article3_12:any;
+  article3_13:any;
+  article3_14:any;
+  article3_others:any;
+  article4:any;
+  article4_1:any;
+  article4_2:any;
+  article4_3:any;
+  article4_4:any;
+  article4_5:any;
+  article4_6:any;
+  article4_7:any;
+  article4_8:any;
+  article4_9:any;
+  article4_10:any;
+  article4_11:any;
+  article4_12:any;
+  article4_13:any;
+  article4_14:any;
+  article4_others:any;
 
-    toArray(){
-      return [
-        this.id,
-        this.course ,
-        this.gender ,
-        this.age ,
-        this.q1_1 ,
-        this.q1_2,
-        this.q1_3,
-        this.q1_4,
-        this.q1_none,
-        this.q2_1,
-        this.q2_2 ,
-        this.q2_3,
-        this.q2_4 ,
-        this.q2_5,
-        this.q2_6,
-        this.others
-      ];
-    }
+  deserialize(input: any) {
+    Object.assign(this, input);
+    return this;
+  }
+  constructor(input:any = {
+    id:null,
+    sex:null,
+    course:null,
+    age:null,
+    article1:null,
+    article1_1:null,
+    article1_2:null,
+    article1_3:null,
+    article1_4:null,
+    article1_5:null,
+    article1_6:null,
+    article1_7:null,
+    article1_8:null,
+    article1_9:null,
+    article1_10:null,
+    article1_11:null,
+    article1_12:null,
+    article1_13:null,
+    article1_14:null,
+    article1_others:null,
+    article2:null,
+    article2_1:null,
+    article2_2:null,
+    article2_3:null,
+    article2_4:null,
+    article2_5:null,
+    article2_6:null,
+    article2_7:null,
+    article2_8:null,
+    article2_9:null,
+    article2_10:null,
+    article2_11:null,
+    article2_12:null,
+    article2_13:null,
+    article2_14:null,
+    article2_others:null,
+    article3:null,
+    article3_1:null,
+    article3_2:null,
+    article3_3:null,
+    article3_4:null,
+    article3_5:null,
+    article3_6:null,
+    article3_7:null,
+    article3_8:null,
+    article3_9:null,
+    article3_10:null,
+    article3_11:null,
+    article3_12:null,
+    article3_13:null,
+    article3_14:null,
+    article3_others:null,
+    article4:null,
+    article4_1:null,
+    article4_2:null,
+    article4_3:null,
+    article4_4:null,
+    article4_5:null,
+    article4_6:null,
+    article4_7:null,
+    article4_8:null,
+    article4_9:null,
+    article4_10:null,
+    article4_11:null,
+    article4_12:null,
+    article4_13:null,
+    article4_14:null,
+    article4_others:null;
+  }){
+      Object.assign(this, input);
+  }
+
+  toArray(){
+    return [
+      this.id,
+      this.sex,
+      this.course,
+      this.age,
+      this.article1,
+      this.article1_1,
+      this.article1_2,
+      this.article1_3,
+      this.article1_4,
+      this.article1_5,
+      this.article1_6,
+      this.article1_7,
+      this.article1_8,
+      this.article1_9,
+      this.article1_10,
+      this.article1_11,
+      this.article1_12,
+      this.article1_13,
+      this.article1_14,
+      this.article1_others,
+      this.article2,
+      this.article2_1,
+      this.article2_2,
+      this.article2_3,
+      this.article2_4,
+      this.article2_5,
+      this.article2_6,
+      this.article2_7,
+      this.article2_8,
+      this.article2_9,
+      this.article2_10,
+      this.article2_11,
+      this.article2_12,
+      this.article2_13,
+      this.article2_14,
+      this.article2_others,
+      this.article3,
+      this.article3_1,
+      this.article3_2,
+      this.article3_3,
+      this.article3_4,
+      this.article3_5,
+      this.article3_6,
+      this.article3_7,
+      this.article3_8,
+      this.article3_9,
+      this.article3_10,
+      this.article3_11,
+      this.article3_12,
+      this.article3_13,
+      this.article3_14,
+      this.article3_others,
+      this.article4,
+      this.article4_1,
+      this.article4_2,
+      this.article4_3,
+      this.article4_4,
+      this.article4_5,
+      this.article4_6,
+      this.article4_7,
+      this.article4_8,
+      this.article4_9,
+      this.article4_10,
+      this.article4_11,
+      this.article4_12,
+      this.article4_13,
+      this.article4_14,
+      this.article4_others,
+    ];
+  }
 }

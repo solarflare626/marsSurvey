@@ -1,0 +1,33 @@
+<ion-header>
+  
+  <ion-toolbar>
+    <label (click)="back()"><ion-icon name="ios-arrow-back"></ion-icon><span>Back</span></label>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-card>
+    <ion-img src="{{article.picture}}"></ion-img>
+    <ion-img *ngIf="survey['article'+(i+1)]" src="assets/img/fake.png" style="position:absolute;z-index:2"></ion-img>
+    <ion-card-header>
+      <ion-card-title style="text-align:center;">{{article.title}}</ion-card-title>
+    </ion-card-header>
+    <ion-card-content style="text-align:center">
+      <pre style="font-family: var(--ion-font-family,inherit);white-space:pre-wrap;text-align: justify;">{{(article.body)}}</pre>
+    </ion-card-content>
+  </ion-card>
+  
+  <ion-fab vertical="bottom" horizontal="start" slot="fixed">
+      <ion-fab-button  color="danger" (click)="markFake()">
+          <ion-icon name="close"></ion-icon>
+      </ion-fab-button>
+  </ion-fab>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button  (click)="markNotFake()">
+        <ion-icon name="checkmark"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <br>
+  <br>
+  <br>
+</ion-content>

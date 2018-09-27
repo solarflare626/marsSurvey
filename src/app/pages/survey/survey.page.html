@@ -1,18 +1,46 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Survey</ion-title>
+    <label (click)="back()"><ion-icon name="ios-arrow-back"></ion-icon><span>Back</span></label>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngFor="let article of articles;let i = index">
-    <ion-img src="{{article.picture}}"></ion-img>
-    <ion-card-header>
-        <ion-card-title style="text-align:center;">{{article.title}}</ion-card-title>
-    </ion-card-header>
-    <ion-card-content padding>
-        <pre style="font-family: var(--ion-font-family,inherit);white-space:pre-wrap;text-align: justify;">{{(article.body.substring(0, 300) + "…")}}</pre>
-        <ion-button>See More</ion-button>
-    </ion-card-content>
-</ion-card>
+  <ion-list>
+      <ion-item>
+          <ion-label>Course</ion-label>
+          <ion-input [(ngModel)]="survey.course" required type="text"  placeholder="Example. BS Information Technology"></ion-input>
+      </ion-item>
+       <ion-item>
+          <ion-label>Age</ion-label>
+        <ion-input [(ngModel)]="survey.age" required type="text"  placeholder="Age"></ion-input>
+       </ion-item>
+       <ion-item>
+        <ion-label>Sex</ion-label>
+        <ion-select [(ngModel)]="survey.sex" >
+          <ion-select-option value="0">Male</ion-select-option>
+          <ion-select-option value="1">Female</ion-select-option>
+        </ion-select>
+      </ion-item>
+  </ion-list>
+  <p><b>Instructions</b>: Please choose your desire answer in the following choices. You can choose as many answers as you
+    want. </p>
+  <p>1. Which among the four articles do you think is/are “Fake”?</p>
+  <ion-list>
+    <ion-item *ngFor="let article of articles;let i = index">
+      <ion-card>
+        <ion-img src="{{article.picture}}"></ion-img>
+        <ion-img *ngIf="checkArticle(article)" src="assets/img/fake.png" style="position:absolute;z-index:2"></ion-img>
+        <ion-card-header>
+          <ion-card-title style="text-align:center;">{{article.title}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content style="text-align:center">
+          <pre style="font-family: var(--ion-font-family,inherit);white-space:pre-wrap;text-align: justify;">{{(article.body.substring(0, 300) + "…")}}</pre>
+          <ion-button (click)="read(article)">Read More</ion-button>
+        </ion-card-content>
+      </ion-card>
+    </ion-item>
+  </ion-list>
+  <div style="text-align: center;">
+    <ion-button >Submit</ion-button>
+  </div>
 </ion-content>

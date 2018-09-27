@@ -21,7 +21,7 @@ export class SurveyService {
     location: 'default'
   })
     .then((db: SQLiteObject) => {
-      db.executeSql('CREATE TABLE IF NOT EXISTS surveys(id INT PRIMARY KEY,course TEXT, gender TEXT,age INT,q1_1 INT,q1_2 INT,q1_3 INT,q1_4 INT,q1_none INT,q2_1 INT,q2_2 INT,q2_3 INT,q2_4 INT,q2_5 INT,q2_6 INT,others TEXT)',[])
+      db.executeSql('CREATE TABLE IF NOT EXISTS surveys(id TEXT PRIMARY KEY,course TEXT, gender TEXT,age INT,q1_1 INT,q1_2 INT,q1_3 INT,q1_4 INT,q1_none INT,q2_1 INT,q2_2 INT,q2_3 INT,q2_4 INT,q2_5 INT,q2_6 INT,others TEXT)',[])
         .then(() => {console.log('Initialized DB')
           this.get().then((results)=>{
             this.surveys = results.rows?  (Array.from(results.rows,(x:Survey) => new Survey(x))) :[];
@@ -67,6 +67,10 @@ export class SurveyService {
       .catch((e) => alert(e));
    }
 
+   randomizer(){
+    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+  }
+
    insert(survey){
     let n = this.nSurveys;
     this.sqlite.create({
@@ -74,7 +78,7 @@ export class SurveyService {
       location: 'default'
     })
       .then((db: SQLiteObject) => {
-        survey.id = n+1;
+        survey.id = Date.now() +'_'+this.randomizer();
         db.executeSql('INSERT INTO  surveys VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)',survey.toArray())
           .then(() => {
             alert('Survey Submitted')

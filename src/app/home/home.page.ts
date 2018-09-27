@@ -17,7 +17,7 @@ export class HomePage {
   }
 
   take(){
-    this.navCtrl.navigateForward('/take');
+    this.navCtrl.navigateForward('/survey');
   }
 
   view(){

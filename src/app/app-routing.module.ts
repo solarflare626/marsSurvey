@@ -7,6 +7,8 @@ const routes: Routes = [
   { path: 'take', loadChildren: './pages/take/take.module#TakePageModule' },
   { path: 'view', loadChildren: './pages/view/view.module#ViewPageModule' },
   { path: 'survey', loadChildren: './pages/survey/survey.module#SurveyPageModule' },
+  { path: 'SurveyArticle', loadChildren: './pages/survey-article/survey-article.module#SurveyArticlePageModule' },
+  { path: 'SurveyArticleReasons', loadChildren: './pages/survey-article-reasons/survey-article-reasons.module#SurveyArticleReasonsPageModule' },
 ];
 
 @NgModule({
