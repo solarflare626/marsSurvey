@@ -4,6 +4,7 @@ import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { SurveyService } from './services/survey.service';
+import { ArticleService } from './services/article.service';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html'
@@ -13,7 +14,8 @@ export class AppComponent {
     private platform: Platform,
     private splashScreen: SplashScreen,
     private statusBar: StatusBar,
-    private surveyService: SurveyService
+    private surveyService: SurveyService,
+    private articleService: ArticleService
   ) {
     this.initializeApp();
   }

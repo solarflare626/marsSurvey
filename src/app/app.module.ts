@@ -11,6 +11,9 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { IonicStorageModule } from '@ionic/storage';
 import { SQLite} from '@ionic-native/sqlite/ngx';
+import { SQLiteMock } from './classes/sqlite-mock';
+import { SurveyService } from './services/survey.service';
+import { ArticleService } from './services/article.service';
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],
@@ -19,7 +22,10 @@ import { SQLite} from '@ionic-native/sqlite/ngx';
     StatusBar,
     SplashScreen,
     SQLite,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    SQLiteMock,
+    ArticleService,
+    SurveyService,
   ],
   bootstrap: [AppComponent]
 })
