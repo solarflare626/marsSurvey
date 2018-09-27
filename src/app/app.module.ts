@@ -15,6 +15,7 @@ import { SQLiteMock } from './classes/sqlite-mock';
 import { SurveyService } from './services/survey.service';
 import { ArticleService } from './services/article.service';
 import { ViewSurveyPopoverComponent } from './components/view-survey-popover/view-survey-popover.component';
+import { File } from '@ionic-native/file/ngx';
 @NgModule({
   declarations: [AppComponent, ViewSurveyPopoverComponent],
   entryComponents: [ViewSurveyPopoverComponent],
@@ -23,6 +24,7 @@ import { ViewSurveyPopoverComponent } from './components/view-survey-popover/vie
     StatusBar,
     SplashScreen,
     SQLite,
+    File,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     SQLiteMock,
     ArticleService,
