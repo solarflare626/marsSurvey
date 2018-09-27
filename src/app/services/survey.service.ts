@@ -3,18 +3,17 @@ import { Storage } from '@ionic/storage';
 //  import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
 import { SQLiteMock, SQLiteObject} from '../classes/sqlite-mock';
 import { Survey } from '../classes/survey';
-
-
+import { AlertController } from '@ionic/angular';
+import * as moment from 'moment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SurveyService {
-  
-  nSurveys:any = 0;
   surveys: Array<Survey> = [];
   constructor(private storage: Storage
-    ,private sqlite: SQLiteMock
+    ,private sqlite: SQLiteMock,
+    public alertController: AlertController
     ) {
   this.sqlite.create({
     name: 'ionicsurveyonedb.db',
@@ -28,30 +27,9 @@ export class SurveyService {
           }).catch((e) => alert(e));
       })
         .catch(e => alert(JSON.stringify(e)));
-        //  this.clear();
+        
     }) 
     .catch(e => alert(JSON.stringify(e)));
-
-    this.storage.get('nSurveys').then((val) => {
-      if(val == null){
-        this.nSurveys = 0;
-        this.storage.set('nSurveys',0);
-      }else{
-        this.nSurveys = val;
-      }
-    });
-   }
-
-   init():Promise<any>{
-    this.storage.get('nSurveys').then((val) => {
-      if(val == null){
-        this.nSurveys = 0;
-        this.storage.set('nSurveys',0);
-      }else{
-        this.nSurveys = val;
-      }
-    });
-     return this.storage.get('nSurveys')
    }
 
    get() : Promise<any>{
@@ -72,7 +50,6 @@ export class SurveyService {
   }
 
    insert(survey){
-    let n = this.nSurveys;
     this.sqlite.create({
       name: 'ionicsurveyonedb.db',
       location: 'default'
@@ -81,10 +58,10 @@ export class SurveyService {
         survey.id = Date.now() +'_'+this.randomizer();
         db.executeSql('INSERT INTO  surveys VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,datetime(\'now\'))',survey.toArray())
           .then(() => {
-            alert('Survey Submitted')
-            this.nSurveys++;
+            this.presentAlert({header:'Success!',message:'Survey Submitted.',buttons: ['OK']})
+            survey.created_at = moment().format('YYYY-MM-DD HH:MM:SS');
             this.surveys.push(survey);
-            this.storage.set('nSurveys',this.nSurveys);
+            
         })
           .catch(e => alert(JSON.stringify(e)));
   
@@ -98,13 +75,31 @@ export class SurveyService {
       location: 'default'
     })
       .then((db: SQLiteObject) => {
-        db.executeSql('DROP TABLE surveys',[])
-        .then(() => console.log('Deleted DB'))
-        .catch(e => alert(JSON.stringify(e)));
-        this.storage.clear();
-        this.nSurveys = 0;
+        db.executeSql('DELETE FROM surveys',[])
+        .then(() => {
+            this.presentAlert({header:'Success!',message:'Successfully cleared data.',buttons: ['OK']})
+            this.surveys = [];
+          })
+        .catch((e) => this.presentAlert({header:'Error',message:JSON.stringify(e),buttons: ['OK']})
+        );
       }) 
-      .catch(e => alert(JSON.stringify(e)));
+      .catch((e) => this.presentAlert({header:'Error',message:JSON.stringify(e),buttons: ['OK']}));
       
    }
+
+   async presentAlert(options:any ={
+      header: 'Alert',
+      subHeader: null,
+      message: 'This is an alert message.',
+      buttons: ['OK']
+   }) {
+    const alert = await this.alertController.create({
+      header: options.header,
+      subHeader: options.subHeader,
+      message: options.message,
+      buttons: options.buttons
+    });
+
+    await alert.present();
+  }
 }

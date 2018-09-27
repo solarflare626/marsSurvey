@@ -1,3 +1,4 @@
+import * as moment from 'moment';
 export class Survey {
   id:any;
   sex:any;
@@ -142,7 +143,7 @@ export class Survey {
     article4_13:false,
     article4_14:false,
     article4_others:null,
-    created_at: new Date().toISOString()
+    created_at: moment().format('YYYY-MM-DD HH:MM:SS')
   }){
       Object.assign(this, input);
   }

@@ -6,9 +6,27 @@
 
 <ion-content padding>
   <ion-row wrap>
-    <ion-col size="2" *ngFor="let x of Arr(nSurveys);let i = index">
+    <ion-col size="2" *ngFor="let survey of surveyService.surveys;let i = index">
       <ion-button (click)="view(i+1)" color="primary">{{i+1}}</ion-button>
     </ion-col>
   </ion-row>
   
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="danger"><ion-icon name="settings"></ion-icon></ion-fab-button>
+    
+      <ion-fab-list side="top">
+        <ion-fab-button (click)="clear()"><ion-icon name="trash"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+    
+      <ion-fab-list side="start">
+        <ion-fab-button><ion-icon name="attach"></ion-icon></ion-fab-button>
+        <ion-fab-button><ion-icon name="send"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+    
+    </ion-fab>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </ion-content>

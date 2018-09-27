@@ -24,9 +24,9 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.statusBar.styleDefault();
       
-      this.surveyService.init().then((val)=>{
+      
         this.splashScreen.hide();
-      });
+      
     });
   }
 }

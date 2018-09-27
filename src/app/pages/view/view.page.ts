@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NavController } from '@ionic/angular';
 import { Survey } from '../../classes/survey';
 import { SurveyService } from '../../services/survey.service';
+import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-view',
@@ -9,29 +10,45 @@ import { SurveyService } from '../../services/survey.service';
   styleUrls: ['./view.page.scss'],
 })
 export class ViewPage implements OnInit {
-  nSurveys:any = 0;
-  Arr = Array;
-  surveys: Array<Survey> = [];
-  constructor(private navCtrl:NavController,private surveyService:SurveyService) { 
-    this.nSurveys = surveyService.nSurveys;
-    this.surveys =this.surveyService.surveys;
-    console.log(this.surveys);
+  constructor(private navCtrl:NavController,private surveyService:SurveyService,public alertController: AlertController) { 
+  
   }
 
   ngOnInit() {
   }
 
-  randomizer(){
-    return Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-  }
   view(i){
-    alert(i);
-    console.log(this.surveys[i-1]);
-    console.log(this.randomizer());
+    console.log(this.surveyService.surveys[i-1]);
   }
 
   back(){
     this.navCtrl.goBack();
   }
 
+  async presentClearConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Deleting Data',
+      message: 'Are you sure you want to delete all data?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: (blah) => {
+            console.log('Confirm Cancelled');
+          }
+        }, {
+          text: 'Confirm',
+          handler: () => {
+            this.surveyService.clear();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+  clear(){
+    this.presentClearConfirm();
+  }
 }

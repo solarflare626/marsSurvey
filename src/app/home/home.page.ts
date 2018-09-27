@@ -3,7 +3,6 @@ import { SurveyService } from '../services/survey.service';
 import { Router } from '@angular/router';
 import { NavController } from '@ionic/angular';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
@@ -20,6 +19,7 @@ export class HomePage {
     this.navCtrl.navigateForward('/survey');
   }
 
+  
   view(){
     this.navCtrl.navigateForward('/view');
   }
