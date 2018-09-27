@@ -12,7 +12,7 @@
       </ion-item>
        <ion-item>
           <ion-label>Age</ion-label>
-        <ion-input [(ngModel)]="survey.age" required type="text"  placeholder="Age"></ion-input>
+        <ion-input [(ngModel)]="survey.age" required type="number"  placeholder="Age"></ion-input>
        </ion-item>
        <ion-item>
         <ion-label>Sex</ion-label>
@@ -41,6 +41,6 @@
     </ion-item>
   </ion-list>
   <div style="text-align: center;">
-    <ion-button >Submit</ion-button>
+    <ion-button (click)="submit()" >Submit</ion-button>
   </div>
 </ion-content>

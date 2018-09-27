@@ -31,6 +31,7 @@ export class SurveyPage implements OnInit {
   }
 
   submit(){
+    this.back();
     this.surveyService.insert(this.survey);
   }
 
