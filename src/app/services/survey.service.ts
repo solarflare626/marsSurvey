@@ -58,6 +58,14 @@ export class SurveyService {
     })
       .then((db: SQLiteObject) => {
         survey.id = Date.now() +'_'+this.randomizer();
+        for(var i = 1; i <=4; i++){
+          if(!survey['article'+i]){
+            for(var index =1;index <=14; index++ ){
+              survey[('article'+i)+'_'+index] = false;
+            }
+            survey[('article'+i)+'_others'] = "";
+          }
+        }
         db.executeSql('INSERT INTO  surveys VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,datetime(\'now\'))',survey.toArray())
           .then(() => {
             this.presentAlert({header:'Success!',message:'Survey Submitted.',buttons: ['OK']})

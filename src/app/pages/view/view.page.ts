@@ -11,7 +11,7 @@ import { ModalController } from '@ionic/angular';
   styleUrls: ['./view.page.scss'],
 })
 export class ViewPage implements OnInit {
-  constructor(private navCtrl:NavController,private surveyService:SurveyService,public alertController: AlertController,public modalController: ModalController) { 
+  constructor(private navCtrl:NavController,public surveyService:SurveyService,public alertController: AlertController,public modalController: ModalController) { 
     
   }
  

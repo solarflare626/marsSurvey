@@ -29,7 +29,7 @@ export class SurveyArticlePage implements OnInit {
   }
   markNotFake(){
     this.survey['article'+this.article.id] = false;
-    for(var i = 1; i<= 14;i++){
+    for(let i = 1; i<= 14;i++){
       this.survey['article'+this.article.id+'_'+i] = false;
     }
     this.survey['article'+this.article.id+'_others'] = '';
