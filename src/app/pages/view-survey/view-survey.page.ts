@@ -38,7 +38,6 @@ export class ViewSurveyPage implements OnInit {
     this.presentModal(article);
   }
   ngOnInit() {
-    console.log(this.survey);
   }
   back(){
     this.modalCtrl.dismiss();

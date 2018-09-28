@@ -15,7 +15,6 @@ export class SurveyArticlePage implements OnInit {
    }
 
   ngOnInit() {
-    console.log(this.survey);
   }
 
   
@@ -43,7 +42,6 @@ export class SurveyArticlePage implements OnInit {
       componentProps: { article: this.article,survey:this.survey,status:this.status }
     });
     modal.onDidDismiss().then(() =>{
-      console.log('dismissed');
       if(this.status.submitted){
         this.back();
       }

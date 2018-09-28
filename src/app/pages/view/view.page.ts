@@ -15,11 +15,10 @@ export class ViewPage implements OnInit {
     
   }
  
-  download(){
-    console.log("export");
+  download(){ 
     this.navCtrl.navigateForward('/export');
   }
-  
+   
   ngOnInit() {
   }
 
