@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Export Data</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-button color="danger" (click)="goUp()">
+    Go up
+  </ion-button>
+
+  <ion-list>
+    <ion-item *ngFor="let item of items">
+
+      <div *ngIf="item.isDirectory" (click)="goDown(item)">
+        Directory: {{item.name}}
+      </div>
+
+      <div *ngIf="item.isFile">
+        File: {{item.name}}
+      </div>
+
+    </ion-item>
+</ion-list>
+</ion-content>
+<ion-footer padding style="text-align:center">
+    <ion-item>
+        <ion-label>Directory: </ion-label>
+        <ion-input [(ngModel)]="filepath" required type="text"  placeholder="Save Directory" readonly></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Filename: </ion-label>
+        <ion-input [(ngModel)]="filename" required type="text"  placeholder="Filename"></ion-input>
+    </ion-item>
+    <ion-button color="primary" (click)="save()">Save</ion-button>
+  
+</ion-footer>

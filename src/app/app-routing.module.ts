@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'SurveyArticleReasons', loadChildren: './pages/survey-article-reasons/survey-article-reasons.module#SurveyArticleReasonsPageModule' },
   { path: 'ViewSurvey', loadChildren: './pages/view-survey/view-survey.module#ViewSurveyPageModule' },
   { path: 'ViewSurveyReason', loadChildren: './pages/view-survey-reason/view-survey-reason.module#ViewSurveyReasonPageModule' },
+  { path: 'export', loadChildren: './pages/export/export.module#ExportPageModule' },
 ];
 
 @NgModule({

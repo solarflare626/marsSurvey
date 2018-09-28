@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-//  import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
-import { SQLiteMock, SQLiteObject} from '../classes/sqlite-mock';
+import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+// import { SQLiteMock as SQLite, SQLiteObject} from '../classes/sqlite-mock';
 import { Survey } from '../classes/survey';
 import { AlertController } from '@ionic/angular';
 import * as moment from 'moment';
@@ -12,7 +12,7 @@ import * as moment from 'moment';
 export class SurveyService {
   surveys: Array<Survey> = [];
   constructor(private storage: Storage
-    ,private sqlite: SQLiteMock,
+    ,private sqlite: SQLite,
     public alertController: AlertController
     ) {
   this.sqlite.create({
@@ -24,6 +24,8 @@ export class SurveyService {
         .then(() => {console.log('Initialized DB')
           this.get().then((results)=>{
             this.surveys = results.rows?  (Array.from(results.rows,(x:Survey) => new Survey(x))) :[];
+            // this.surveys.length =300;
+            // this.surveys.fill(new Survey());
           }).catch((e) => alert(e));
       })
         .catch(e => alert(JSON.stringify(e)));
