@@ -24,8 +24,11 @@ export class SurveyService {
         .then(() => {console.log('Initialized DB')
           this.get().then((results)=>{
             this.surveys = results.rows?  (Array.from(results.rows,(x:Survey) => new Survey(x))) :[];
-            // this.surveys.length =300;
-            // this.surveys.fill(new Survey());
+            //  this.surveys.length =300;
+            //  this.surveys.fill(new Survey());
+            //  this.surveys.forEach(element => {
+            //    this.insert(element);
+            //  });
           }).catch((e) => alert(e));
       })
         .catch(e => alert(JSON.stringify(e)));

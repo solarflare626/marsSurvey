@@ -38,7 +38,7 @@ export class SurveyPage implements OnInit {
   async presentSubmitConfirm() {
     const alertPrompt = await this.alertController.create({
       header: 'Submit Survey',
-      message: 'Are you sure you want to delete all data?',
+      message: 'Are you sure you want to submit the survey?',
       buttons: [
         {
           text: 'Cancel',

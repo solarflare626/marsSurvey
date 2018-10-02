@@ -27,8 +27,8 @@ export class ArticleService {
  this.articles.push(new Article({
   id:3,
   picture:"/assets/img/article3.jpg",
-  title: 'U.S. ANNOUNCES ‘NO VISA’ POLICY FOR FILIPINOS',
-  author: 'Pol Pinoy, adobochronicles- 2014',
+  title: 'PNP to file charges vs. blogger Drew Olivar over bomb joke',
+  author: 'CNN Philippines Staff- September 24, 2018',
   source:'cnnphilippines.com',
   body:  ('\tMetro Manila- More charges await for blogger Drew Olivar for another controversial post on social media. \n\n\tDirector-General Oscar Albayalde, Philippine National Police (PNP) chief, said Olivar will face charges of spreading false bomb threat information in one of the rallies during the 46th anniversary of the martial law declaration.\n\n\t“Hindi lang siya maaresto that time kasi nangyari ‘yun medyo matagal na [He wasn’t arrested immediately because he posted the joke quite some time ago] but he will be formally charged in court for violation of PD 1727,” Albayalde told the media Monday. \n\n\tPresidential Decree 1727 prohibits “malicious dissemination of false information or the willful making of any threat concerning bombs, explosives or any similar device or means of destruction and imposing penalties therefore.” \n\n\tViolators may be punished with imprisonment of not more than five years, or a maximum fine of P40,000. \n\n\tOlivar posted on his Facebook page on September 21 a warning for rallyists in EDSA that a bomb explosion may occur similar to that of the Plaza Miranda bombing n Quiapo, Manila in 1971. \n\n\tThis latest social media development comes after a series of controversial posts from the blogger along with Communications Assistant Secretary Mocha Uson. The tandem received backlash for ther “Pepederalismo” videos and another video mocking the deaf community. \n\n\tThe Philippine Federation of the Deaf filed a complaint with the Ombudsman on September 20 against Uson and Olivar for making fun of sign language and violating their rights. \n\n\tAlbayalde did not detail when the charges will be filed but Director Guillermo Eleazar, Metro Manila police chief, earlier mentioned they are eyeing filling it as soon as possible.')
 }));
